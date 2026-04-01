@@ -37,5 +37,6 @@
       "style": "scss",
       "unitTestRunner": "vitest-angular"
     }
-  }
+  },
+  "nxCloudId": "69cd64873ee394d7fe4495c8"
 }
