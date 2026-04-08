@@ -15,6 +15,7 @@
         "tsConfig": "apps/pets-shop/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+          "apps/pets-shop/src/assets",
           {
             "glob": "**/*",
             "input": "apps/pets-shop/public"

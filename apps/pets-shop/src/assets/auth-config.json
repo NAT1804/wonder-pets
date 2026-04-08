@@ -1,0 +1,6 @@
+{
+  "issuer": "http://localhost:8080/realms/pets-shop-realm",
+  "clientId": "pets-shop-angular-client",
+  "redirectUri": "http://localhost:4200"
+
+}
