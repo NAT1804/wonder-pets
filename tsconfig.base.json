@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@wonder-pets/auth": ["libs/auth/src/index.ts"],
+      "@wonder-pets/contracts": ["libs/shared/contracts/src/index.ts"],
       "@wonder-pets/home": ["libs/home/src/index.ts"],
       "@wonder-pets/page-not-found": ["libs/page-not-found/src/index.ts"]
     }

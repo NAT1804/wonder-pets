@@ -1,15 +1,31 @@
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { AuthService } from '@wonder-pets/auth';
+import {
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
+import { ApiAuthService } from '@wonder-pets/auth';
+import { CartService } from './core/cart.service';
 
 @Component({
-  imports: [RouterModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
-  readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+  readonly authService = inject(ApiAuthService);
+  readonly cartService = inject(CartService);
 
-  isAuthenticated = this.authService.isAuthenticated;
+  readonly isAuthenticated = this.authService.isAuthenticated;
+  readonly isAdmin = this.authService.isAdmin;
+  readonly user = this.authService.user;
+
+  logout(): void {
+    this.authService.logout().subscribe(() => {
+      this.router.navigateByUrl('/home');
+    });
+  }
 }

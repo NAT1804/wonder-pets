@@ -1,1 +1,195 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --wp-primary: #0f766e;
+  --wp-primary-dark: #115e59;
+  --wp-primary-soft: #ccfbf1;
+  --wp-accent: #f59e0b;
+  --wp-bg: #f8fafc;
+  --wp-surface: #ffffff;
+  --wp-border: #e2e8f0;
+  --wp-text: #0f172a;
+  --wp-muted: #64748b;
+  --wp-danger: #dc2626;
+  --wp-danger-soft: #fef2f2;
+  --wp-success: #16a34a;
+  --wp-success-soft: #f0fdf4;
+  --wp-radius: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  background: var(--wp-bg);
+  color: var(--wp-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--wp-primary);
+}
+
+.wp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wp-card {
+  background: var(--wp-surface);
+  border: 1px solid var(--wp-border);
+  border-radius: var(--wp-radius);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.wp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--wp-border);
+  background: var(--wp-surface);
+  color: var(--wp-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: #f1f5f9;
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+}
+
+.wp-btn-primary {
+  background: var(--wp-primary);
+  border-color: var(--wp-primary);
+  color: #ffffff;
+
+  &:hover:not(:disabled) {
+    background: var(--wp-primary-dark);
+    border-color: var(--wp-primary-dark);
+  }
+}
+
+.wp-btn-danger {
+  background: var(--wp-danger-soft);
+  border-color: #fecaca;
+  color: var(--wp-danger);
+
+  &:hover:not(:disabled) {
+    background: #fee2e2;
+  }
+}
+
+.wp-input,
+.wp-select,
+.wp-textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  background: #ffffff;
+  color: var(--wp-text);
+
+  &:focus {
+    outline: 2px solid var(--wp-primary-soft);
+    border-color: var(--wp-primary);
+  }
+}
+
+.wp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.wp-badge-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.wp-badge-confirmed {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.wp-badge-shipping {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.wp-badge-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.wp-badge-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.wp-alert-error {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--wp-danger-soft);
+  border: 1px solid #fecaca;
+  color: var(--wp-danger);
+  font-size: 0.9rem;
+}
+
+.wp-alert-success {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--wp-success-soft);
+  border: 1px solid #bbf7d0;
+  color: var(--wp-success);
+  font-size: 0.9rem;
+}
+
+.wp-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.wp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.75rem 0.85rem;
+    border-bottom: 1px solid var(--wp-border);
+  }
+
+  th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--wp-muted);
+    background: #f8fafc;
+  }
+}

@@ -55,7 +55,8 @@
           "buildTarget": "pets-shop:build:production"
         },
         "development": {
-          "buildTarget": "pets-shop:build:development"
+          "buildTarget": "pets-shop:build:development",
+          "proxyConfig": "apps/pets-shop/proxy.conf.json"
         }
       },
       "defaultConfiguration": "development"

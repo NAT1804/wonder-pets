@@ -1,6 +1,38 @@
-@if (isAuthenticated()) {
-  <p>Welcome to the Pets Shop!</p>
+<header class="app-header">
+  <div class="header-inner wp-container">
+    <a class="brand" routerLink="/home">🐾 Wonder Pets</a>
+
+    <nav class="nav-links">
+      <a routerLink="/home" routerLinkActive="active">Cửa hàng</a>
+      @if (isAuthenticated()) {
+        <a routerLink="/orders" routerLinkActive="active">Đơn hàng</a>
+      }
+      @if (isAdmin()) {
+        <a routerLink="/admin" routerLinkActive="active">Quản trị</a>
+      }
+    </nav>
+
+    <div class="nav-actions">
+      <a class="wp-btn cart-link" routerLink="/cart">
+        Giỏ hàng
+        @if (cartService.totalCount() > 0) {
+          <span class="cart-badge">{{ cartService.totalCount() }}</span>
+        }
+      </a>
+
+      @if (isAuthenticated()) {
+        <span class="user-greeting">{{ user()?.fullName }}</span>
+        <button type="button" class="wp-btn" (click)="logout()">
+          Đăng xuất
+        </button>
+      } @else {
+        <a class="wp-btn" routerLink="/login">Đăng nhập</a>
+        <a class="wp-btn wp-btn-primary" routerLink="/register">Đăng ký</a>
+      }
+    </div>
+  </div>
+</header>
+
+<main class="app-main">
   <router-outlet></router-outlet>
-} @else {
-  <p>Please log in to access the Pets Shop.</p>
-}
+</main>

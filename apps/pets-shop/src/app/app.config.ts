@@ -1,24 +1,22 @@
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
-  provideBrowserGlobalErrorListeners,
-  provideAppInitializer,
   inject,
+  provideAppInitializer,
+  provideBrowserGlobalErrorListeners,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { apiAuthInterceptor, ApiAuthService } from '@wonder-pets/auth';
 import { appRoutes } from './app.routes';
-import { provideOAuthClient } from 'angular-oauth2-oidc';
-import { AuthService, ConfigService } from '@wonder-pets/auth';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideOAuthClient(),
+    provideHttpClient(withInterceptors([apiAuthInterceptor])),
     provideRouter(appRoutes),
     provideAppInitializer(async () => {
-      const configService = inject(ConfigService);
-      const authService = inject(AuthService);
-      await configService.loadConfig();
-      await authService.configure();
+      const authService = inject(ApiAuthService);
+      await authService.initSession();
     }),
   ],
 };

@@ -1,0 +1,17 @@
+node_modules
+dist
+tmp
+out-tsc
+coverage
+.git
+.nx
+.angular
+.vscode
+.env
+.env.*
+!.env.example
+docker/.env
+docker/.env.*
+!docker/.env.example
+!docker/.env.prod.example
+npm-debug.log
